@@ -1,5 +1,7 @@
 ﻿using Microsoft.TeamFoundation.Work.WebApi;
+using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
 using System;
 
 namespace Практика6.Вариант_3
@@ -37,6 +39,87 @@ namespace Практика6.Вариант_3
             {
                 list[i] = new Paper();
             }
+        }
+        
+        public Paper Lastdate
+        {
+            get
+            {
+                if (list[0] == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    Paper temp = new Paper();
+                    temp = list[0];
+                    for (int i = 1; i < 5; ++i)
+                    {
+                        if (temp.date < list[i].date)
+                            temp.date = list[i].date;
+                    }
+                    return temp;
+                }
+            }
+        }
+        public bool this [TimeFrame index]
+        {
+            get
+            {
+                if (index == time)
+                    return true;
+                else
+                    return false;
+            }
+        }
+        public void AddPapers (params Paper[] _newPapers)
+        {
+            if (list.Length == 0)
+            {
+                list = new Paper[_newPapers.Length];
+                for (int j = 0; j<_newPapers.Length; ++j)
+                {
+                    list[j] = _newPapers[j];
+                }
+            }
+            else
+            {
+                int size = list.Length;
+                Paper[] temp = new Paper[list.Length];
+                for (int j = 0; j < size; ++j)
+                {
+                    temp[j] = list[j];
+                }
+                list = new Paper[size + _newPapers.Length];
+                for (int j = 0; j < size; ++j)
+                {
+                    list[j] = temp[j];
+                }
+                for (int j = 0; j < size; ++j)
+                {
+                    list[j] = _newPapers[j - size];
+                }
+            }
+        }
+        public override string ToString()
+        {
+            string output;
+            output = $"{researchtopic}, {organization} {Convert.ToString(number)}, {time.ToString()}";
+            for (int i = 0; i < list.Length; ++i)
+            {
+                if (list[i] == null)
+                {
+                    break;
+                }
+                output += $"\nPaper #{i + 1}: {list[i].ToString()}";
+            }
+            return output;
+        }
+        public virtual string ToShortString()
+        {
+            string output;
+            output = $"{researchtopic}, {organization}, {Convert.ToString(number)}, {Convert.ToString(time)}";
+            return output;
         }
     }
 }

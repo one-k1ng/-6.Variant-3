@@ -6,7 +6,7 @@ namespace Практика6.Вариант_3
     {
         public string title; // Название публикации
         public Person data; // Автор публикации
-        System.DateTime date; // Дата публикации
+        public System.DateTime date; // Дата публикации
 
         public Paper(Person _data, string _title, DateTime _date)
         {
