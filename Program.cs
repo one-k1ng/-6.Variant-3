@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.TeamFoundation.Work.WebApi;
+using System;
 
 namespace Практика6.Вариант_3
 {
@@ -8,6 +9,12 @@ namespace Практика6.Вариант_3
         {
             ResearchTeam researchTeam = new ResearchTeam();
             Console.WriteLine(researchTeam.ToShortString());
+
+            ResearchTeam[TimeFrame.Current];
+            ResearchTeam[TimeFrame.Future];
+            ResearchTeam[TimeFrame.Past];
+
+
         }
     }
 }
