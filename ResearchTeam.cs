@@ -32,8 +32,8 @@ namespace Практика6.Вариант_3
             organization = "World organization of coffeeman";
             number = 1;
             TimeFrame time = TimeFrame.Year;
-            list = new Paper[5];
-            for (int i = 0; i < 5; ++i)
+            list = new Paper[3];
+            for (int i = 0; i < 3; ++i)
             {
                 list[i] = new Paper();
             }
@@ -55,7 +55,7 @@ namespace Практика6.Вариант_3
         {
             get
             {
-                return organization
+                return organization;
             }
             set
             {
