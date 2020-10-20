@@ -1,4 +1,5 @@
-﻿using Microsoft.TeamFoundation.Work.WebApi;
+﻿using Microsoft.TeamFoundation.SourceControl.WebApi;
+using Microsoft.TeamFoundation.Work.WebApi;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
@@ -27,8 +28,8 @@ namespace Практика6.Вариант_3
 
         public ResearchTeam()
         {
-            researchtopic = "Newton third law";
-            organization = "World organization of physicists";
+            researchtopic = "Deal ideal coffee";
+            organization = "World organization of coffeeman";
             number = 1;
             TimeFrame time = TimeFrame.Year;
             list = new Paper[5];
@@ -37,7 +38,67 @@ namespace Практика6.Вариант_3
                 list[i] = new Paper();
             }
         }
-        
+
+        public string ResearcTopic
+        {
+            get
+            {
+                return researchtopic;
+            }
+            set
+            {
+                researchtopic = value;
+            }
+        }
+
+        public string Organization
+        {
+            get
+            {
+                return organization
+            }
+            set
+            {
+                organization = value;
+            }
+        }
+
+        public int Number
+        {
+            get
+            {
+                return number;
+            }
+            set
+            {
+                number = value;
+            }
+        }
+
+        public TimeFrame Time
+        {
+            get
+            {
+                return time;
+            }
+            set
+            {
+                time = value;
+            }
+        }
+
+        public Paper[] List
+        {
+            get
+            {
+                return list;
+            }
+            set
+            {
+                list = value;
+            }
+        }
+
         public Paper Lastdate
         {
             get

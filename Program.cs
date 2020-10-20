@@ -10,9 +10,12 @@ namespace Практика6.Вариант_3
             ResearchTeam researchTeam = new ResearchTeam();
             Console.WriteLine(researchTeam.ToShortString());
 
-            ResearchTeam[TimeFrame.Current];
-            ResearchTeam[TimeFrame.Future];
-            ResearchTeam[TimeFrame.Past];
+            Console.WriteLine(researchTeam[ResearchTeam.TimeFrame.Long]);
+            Console.WriteLine(researchTeam[ResearchTeam.TimeFrame.TwoYears]);
+            Console.WriteLine(researchTeam[ResearchTeam.TimeFrame.Year]);
+
+            string Name = "Ken";
+            string Surname = "Kaneki"
 
 
         }
