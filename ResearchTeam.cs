@@ -8,10 +8,7 @@ namespace Практика6.Вариант_3
 {
     class ResearchTeam
     {
-        public enum TimeFrame 
-        {
-            Year = 1, TwoYears = 2, Long = 3 
-        };
+        public enum TimeFrame {Year, TwoYears, Long};
         private string researchtopic;
         private string organization;
         private int number;
