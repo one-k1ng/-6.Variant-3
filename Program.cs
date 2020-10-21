@@ -103,7 +103,34 @@ namespace Практика6.Вариант_3
 
             researchTeam.List = new Paper[0]; //Чистка журнала
 
+            //Двумерная матрица
+            int timerpaper2matrix = 0;
+            for (int i = 0; i < rows; ++i)
+            {
+                for (int j = 0; j < coloumns; ++j)
+                {
+                    papers2matrix[i, j] = new Paper();
+                }
+            }
+            timerpaper2matrix = Environment.TickCount;
+            for (int i = 0; i < rows; ++i)
+            {
+                for (int j = 0; j < coloumns; ++j)
+                {
+                    researchTeam.AddPapers(papers2matrix[i, j]);
+                }
+            }
+            Console.WriteLine($"{researchTeam.ToString()}\n:Two-direct matrix");
+            timerpaper2matrix = Environment.TickCount - timerpaper2matrix;
 
+            //Чистим консоль
+            Console.WriteLine("\nPress any key to continue");
+            Console.ReadKey();
+            Console.Clear();
+
+            Console.WriteLine ($"Time for One-Directional array: {timerpaper1}\n" +
+        $"Time for Two-Directional stairs array: {timerpaper2stairs}\n" +
+        $"Time for Two-Directional matrix array: {timerpaper2matrix}");
         }
     }
 }
