@@ -153,7 +153,7 @@ namespace Практика6.Вариант_3
                 {
                     list[j] = temp[j];
                 }
-                for (int j = 0; j < size; ++j)
+                for (int j = size; j < list.Length; ++j)
                 {
                     list[j] = _newPapers[j - size];
                 }
