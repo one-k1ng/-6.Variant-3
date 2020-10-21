@@ -1,5 +1,6 @@
 ﻿using Microsoft.TeamFoundation;
 using Microsoft.TeamFoundation.Work.WebApi;
+using Microsoft.VisualStudio.Services.WebApi;
 using System;
 
 namespace Практика6.Вариант_3
@@ -50,8 +51,8 @@ namespace Практика6.Вариант_3
             int coloumns = Convert.ToInt32(size[1]); // Записываем размеры в переменные типа int
 
             Paper[] papers1 = new Paper[rows * coloumns];
-            Paper[,] papers2 = new Paper[rows, coloumns];
-            Paper[][] papers3 = new Paper[rows][];
+            Paper[,] papers2matrix = new Paper[rows, coloumns];
+            Paper[][] papers2stairs = new Paper[rows][];
 
             // Одномерный массив
             int timerpaper1 = 0;
@@ -72,8 +73,36 @@ namespace Практика6.Вариант_3
             researchTeam.List = new Paper[0]; //Чистка журнала
 
             //Двумерный ступенчатый
-            int timerpaper2 = 0;
+            int timerpaper2stairs = 0;
             int sum = 0;
+            for (int i = 0; i < rows - 1; ++i)
+            {
+                sum += i;
+                papers2stairs[i] = new Paper[i + 1];
+            }
+            papers2stairs[rows - 1] = new Paper[coloumns * rows - sum];
+            for (int i = 0; i < rows; ++i)
+            {
+                for (int j = 0; j < papers2stairs[i].Length; ++j)
+                {
+                    papers2stairs[i][j] = new Paper();
+                }
+            }
+            timerpaper2stairs = Environment.TickCount;
+            for (int i = 0; i < rows; ++i)
+            {
+                researchTeam.AddPapers(papers2stairs[i]);
+            }
+            Console.WriteLine($"{researchTeam.ToString()}\n:Two-direct stairs array");
+            timerpaper2stairs = Environment.TickCount - timerpaper2stairs;
+
+            //Чистим консоль
+            Console.WriteLine("\nPress any key to continue");
+            Console.ReadKey();
+            Console.Clear();
+
+            researchTeam.List = new Paper[0]; //Чистка журнала
+
 
         }
     }
