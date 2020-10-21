@@ -111,7 +111,7 @@ namespace Практика6.Вариант_3
                 {
                     Paper temp = new Paper();
                     temp = list[0];
-                    for (int i = 1; i < 5; ++i)
+                    for (int i = 1; i < list.Length; ++i)
                     {
                         if (temp.date < list[i].date)
                             temp.date = list[i].date;
